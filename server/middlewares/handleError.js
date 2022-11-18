@@ -1,4 +1,4 @@
-const handleError = function (err, req, res, next) {
+exports.handleError = function (err, req, res, next) {
     const errorStatus = err.status || 500;
     const errorMessage = err.message || "SOMETHING WENT WRONG";
 
@@ -9,5 +9,3 @@ const handleError = function (err, req, res, next) {
         stack: err.stack,
     });
 };
-
-module.exports = handleError;

@@ -1,4 +1,6 @@
 require("dotenv").config();
+process.dirname = __dirname;
+
 const express = require("express");
 const app = express();
 
