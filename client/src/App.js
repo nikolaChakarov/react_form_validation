@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { GlobalContext } from "./globalState/GlobalState";
 import Nav from "./Nav";
 import Home from "./Home";
-import Form from "./Form";
+import Register from "./form/Register";
 import Protected from "./Protected";
 
 const App = () => {
@@ -15,13 +15,29 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route
-                    path="/form"
+                    path="/register"
                     element={
                         <Protected user={user}>
-                            <Form />
+                            <Register />
                         </Protected>
                     }
                 />
+                {/* <Route
+                    path="/login"
+                    element={
+                        <Protected user={user}>
+                            <Form type={"login"} />
+                        </Protected>
+                    }
+                /> */}
+                {/* <Route
+                    path="/profile"
+                    element={
+                        <Protected user={user}>
+                            <Form type={"profile"} />
+                        </Protected>
+                    }
+                /> */}
             </Routes>
         </div>
     );

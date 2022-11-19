@@ -30,6 +30,7 @@ exports.register = async function (req, res, next) {
                 message: "You are register",
             });
     } catch (err) {
+        console.log(err);
         next(err);
     }
 };

@@ -1,9 +1,16 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { GlobalContext } from "./globalState/GlobalState";
 
 const Nav = () => {
-    const { user } = useContext(GlobalContext);
+    const { user, dispatch } = useContext(GlobalContext);
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        dispatch({ type: "LOGOUT" });
+        localStorage.removeItem("user");
+        navigate("/");
+    };
 
     return (
         <div>
@@ -12,12 +19,20 @@ const Nav = () => {
                     <Link to="/">Home</Link>
                 </li>
                 <li>
-                    <Link to="/form">Form</Link>
+                    <Link to="/register">Register</Link>
+                </li>
+                <li>
+                    <Link to="/login">Login</Link>
                 </li>
                 {user && (
-                    <li>
-                        <Link to="/logout">Logout</Link>
-                    </li>
+                    <>
+                        <li>
+                            <Link to="/profile">Profile</Link>
+                        </li>
+                        <li>
+                            <Link onClick={handleLogout}>Logout</Link>
+                        </li>
+                    </>
                 )}
             </ul>
         </div>
