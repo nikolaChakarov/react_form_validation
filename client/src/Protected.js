@@ -2,11 +2,11 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 
 const Protected = ({ user, children }) => {
-    if (user) {
-        return <Navigate to="/" replace />;
-    }
+	if (user) {
+		return <Navigate to="/" replace />;
+	}
 
-    return children;
+	return children;
 };
 
 export default Protected;
