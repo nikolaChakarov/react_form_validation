@@ -29,6 +29,7 @@ export const GlobalProvider = function ({ children }) {
 					headers: {
 						"Content-Type": "application/json",
 					},
+					credentials: "include",
 					body: JSON.stringify(user),
 				})
 			).json();
